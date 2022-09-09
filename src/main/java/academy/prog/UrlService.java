@@ -50,8 +50,4 @@ public class UrlService {
         return result;
     }
 
-    @Transactional(readOnly = true)
-    public long count() {
-        return urlRepository.count();
-    }
 }

@@ -12,17 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    private static final int PAGE_SIZE = 5;
-
     private final UrlService urlService;
 
     public AdminController(UrlService urlService) {
         this.urlService = urlService;
-    }
-
-    @GetMapping("count")
-    public PageCountDTO count() {
-        return PageCountDTO.of(urlService.count(), PAGE_SIZE);
     }
 
     @GetMapping("stat")
