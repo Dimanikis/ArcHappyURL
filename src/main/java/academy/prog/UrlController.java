@@ -38,8 +38,5 @@ public class UrlController {
         return new ResponseEntity<>(headers, HttpStatus.FOUND);
     }
 
-    @GetMapping("stat")
-    public List<UrlStatDTO> stat() {
-        return urlService.getStatistics();
-    }
+
 }

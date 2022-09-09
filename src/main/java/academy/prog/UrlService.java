@@ -39,6 +39,7 @@ public class UrlService {
         return urlRecord.getUrl();
     }
 
+
     @Transactional(readOnly = true)
     public List<UrlStatDTO> getStatistics() {
         var records = urlRepository.findAll();
@@ -47,5 +48,10 @@ public class UrlService {
         records.forEach(x -> result.add(x.toStatDTO()));
 
         return result;
+    }
+
+    @Transactional(readOnly = true)
+    public long count() {
+        return urlRepository.count();
     }
 }
