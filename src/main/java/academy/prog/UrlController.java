@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+@CrossOrigin()
 @RestController
 public class UrlController {
     private final UrlService urlService;
@@ -16,11 +17,13 @@ public class UrlController {
         this.urlService = urlService;
     }
 
+
     @PostMapping("shorten")
     public UrlResultDTO shorten(@RequestBody UrlDTO urlDTO) {
         long id = urlService.saveUrl(urlDTO);
 
         var result = new UrlResultDTO();
+
         result.setUrl(urlDTO.getUrl());
         result.setShortUrl(Long.toString(id));
 
